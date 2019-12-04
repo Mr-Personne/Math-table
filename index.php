@@ -1,5 +1,5 @@
 <?php
-print_r($_POST);
+// print_r($_POST);
 //generates table
 $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
@@ -8,20 +8,20 @@ for ($i = 0; $i <= 10; $i++){
 
 function generateTable($tableNum = 3){
     //generates lines to be added later in container echo
-    $lines = '<p>1 X '.$tableNum.' = '.(1*$tableNum);
+    $lines = '<p class="fade-anim">1 X '.$tableNum.' = '.(1*$tableNum);
     for ($i = 2; $i <= 10; $i++){
-        $lines .= '<p>'.$i.' X '.$tableNum.' = '.($i*$tableNum);
+        $lines .= '<p class="fade-anim">'.$i.' X '.$tableNum.' = '.($i*$tableNum);
     };
 
 
         echo '<div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">'.
-
-                        $lines
-
-                        .'</div>
+                        <div class="col-12">
+                            <h2 class="fade-anim">Table de '.$tableNum.'</h2>
+                            '.$lines.'
+                            <button type="button" class="revision" onclick="revision('.$tableNum.')" >Teste moi!</button>
+                        </div>
                     </div>
                 </div>
             </div>';
@@ -43,6 +43,7 @@ function generateTable($tableNum = 3){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Math Tables!</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -89,16 +90,27 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
         </div>
     </header>
 
-    <main class="d-flex">
-        <?php
-            foreach ($_POST as $value){
-                // print_r($value);
-                generateTable($value);
-            }
+    <main>
+        <section class="d-flex flex-space-a">
+            <?php
+                foreach ($_POST as $value){
+                    // print_r($value);
+                    generateTable($value);
+                }
+                
+            ?>
+        </section>
+
+        <section class="mode-révision">
             
-        ?>
+        </section>
     </main>
 
+
+    <!-- background image -->
+    <!-- <a href="http://www.freepik.com">Designed by Dashu83 / Freepik</a> -->
+    
+    <script src="js/script.js"></script>
 </body>
 
 </html>
