@@ -1,3 +1,39 @@
+<?php
+print_r($_POST);
+//generates table
+$tablesArray = array();
+for ($i = 0; $i <= 10; $i++){
+    $tablesArray[] = $i;
+}
+
+function generateTable($tableNum = 3){
+    //generates lines to be added later in container echo
+    $lines = '<p>1 X '.$tableNum.' = '.(1*$tableNum);
+    for ($i = 2; $i <= 10; $i++){
+        $lines .= '<p>'.$i.' X '.$tableNum.' = '.($i*$tableNum);
+    };
+
+
+        echo '<div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">'.
+
+                        $lines
+
+                        .'</div>
+                    </div>
+                </div>
+            </div>';
+    
+}
+
+
+// print_r($tablesArray);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,7 +41,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Math Tables!</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,16 +72,15 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
 
                     <div class="col-6">
                         <nav>
-                            <form action="#">
-                                <input type="checkbox" name="table1" value="1"> 1
-                                <input type="checkbox" name="table2" value="2"> 2
-                                <input type="checkbox" name="table3" value="3" checked> 3
-                                <input type="checkbox" name="table1" value="4"> 4
-                                <input type="checkbox" name="table2" value="5"> 5
-                                <input type="checkbox" name="table3" value="6" checked> 6
-                                <input type="checkbox" name="table1" value="7"> 7
-                                <input type="checkbox" name="table2" value="8"> 8
-                                <input type="checkbox" name="table3" value="9" checked> 9
+                            <form action="#" method="post">
+                                <?php 
+                                    foreach ($tablesArray as $num){
+                                        if ($num !== 0){
+                                            echo '<input type="checkbox" name="table'.$num.'" value="'.$num.'"> '.$num.'';
+                                        }
+                                    }
+                                    echo '<input type="submit" value="Submit">';
+                                ?>
                             </form>
                         </nav>
                     </div>
@@ -53,6 +88,16 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
             </div>
         </div>
     </header>
+
+    <main class="d-flex">
+        <?php
+            foreach ($_POST as $value){
+                // print_r($value);
+                generateTable($value);
+            }
+            
+        ?>
+    </main>
 
 </body>
 
