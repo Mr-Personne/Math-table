@@ -1,51 +1,30 @@
 <?php
-session_start();
-print_r($_POST);
+// print_r($_POST);
 //generates table
 $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
     $tablesArray[] = $i;
 }
-
 function generateTable($tableNum = 3){
-    
-    $_SESSION["tableNum"] = $tableNum;
     //generates lines to be added later in container echo
-    $lines = '<p class="fade-anim">1 X '.$tableNum.' = '.(1*$tableNum).'</p>';
+    $lines = '<p class="fade-anim">1 X '.$tableNum.' = '.(1*$tableNum);
     for ($i = 2; $i <= 10; $i++){
-        $lines .= '<p class="fade-anim">'.$i.' X '.$tableNum.' = '.($i*$tableNum).'</p>';
+        $lines .= '<p class="fade-anim">'.$i.' X '.$tableNum.' = '.($i*$tableNum);
     };
-
-
         echo '<div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12">
                             <h2 class="fade-anim">Table de '.$tableNum.'</h2>
                             '.$lines.'
-                            <form action="#" method="get">
-                            <input type="button" class="revision"
-                             onclick="revision('.$tableNum.')" value="Teste moi!">
-                            </form>
+                            <button type="button" class="revision" onclick="revision('.$tableNum.')" >Teste moi!</button>
                         </div>
                     </div>
                 </div>
             </div>';
     
 }
-
-
-
-// function revision($num) {
-//     $randNum = rand(0, 10);
-//     print_r($_SESSION["tableNum"]);
-//     $stringQestion = $randNum . " X " . $num . " = ";
-//     echo $stringQestion;
-//     $answer = $randNum * $num;
-//     //timeout so ajax has time to load page
-//     // setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
-// }
-
+// print_r($tablesArray);
 ?>
 
 <!DOCTYPE html>
@@ -63,19 +42,15 @@ function generateTable($tableNum = 3){
 
 <body>
     <!-- Réaliser une mini application de tables de multiplications.
-
     Afficher la table de multiplication de 3.
     Sélectionner une table de multiplication entre 1 et 10 dans une liste déroulante select.
     On valide et la table de multiplication sélectionée s'affiche en dessous.
     Le choix de la ou des  table(s) de multiplication à afficher se fait par checkboxes et par un bouton "valider". La ou les  table(s) de multiplication sélectionée(s) s'affiche(nt) en dessous.
     Intégrer un mode révision : l'utilisateur choisit une table de multiplication et doit répondre à une multiplication tirée au hasard dans la table sélectionnée.
-
 Bonus :
-
     Super Mode révision : Poser une série de 5 questions puis afficher le score.
     Appliquer un aspect "Material design".
     L'ensemble du site est reponsive.
-
 Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre l'utilisation du mode révision plus fluide. -->
     <header>
         <div class="container-fluid">
@@ -107,19 +82,10 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     <main>
         <section class="d-flex flex-space-a">
             <?php
-
-            if (isset($_POST)){
-                echo "isset is true";
                 foreach ($_POST as $value){
                     // print_r($value);
                     generateTable($value);
                 }
-            }
-            else{
-                echo "post is empty";
-                generateTable();
-            }
-                
                 
             ?>
         </section>
@@ -133,7 +99,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     <!-- background image -->
     <!-- <a href="http://www.freepik.com">Designed by Dashu83 / Freepik</a> -->
     
-    <script src="js/script.js"></script>
+    <script src="scriptJS.js"></script>
 </body>
 
 </html>
