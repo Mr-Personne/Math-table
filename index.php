@@ -1,7 +1,7 @@
 <?php
 session_start();
 // print_r($_SESSION);
-print_r($_POST);
+// print_r($_POST);
 //generates table
 $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
@@ -25,7 +25,8 @@ function generateTable($tableNum = 3){
                         <div class="col">
                             <h2 class="fade-anim">Table de '.$tableNum.'</h2>
                             '.$lines.'
-                            </form>
+                            <button type="button" class="revision"
+                             onclick="ajaxCallAsynch('.$tableNum.')" value='.$tableNum.'>Teste moi!</button>
                         </div>
                     </div>
                 </div>
