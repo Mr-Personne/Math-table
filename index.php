@@ -1,11 +1,13 @@
 <?php
-// session_start();
+session_start();
 // print_r($_SESSION);
+print_r($_POST);
 //generates table
 $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
     $tablesArray[] = $i;
 }
+$_SESSION["tablesArray"] = $tablesArray;
 
 function generateTable($tableNum = 3){
     
@@ -23,9 +25,6 @@ function generateTable($tableNum = 3){
                         <div class="col">
                             <h2 class="fade-anim">Table de '.$tableNum.'</h2>
                             '.$lines.'
-                            <form action="#" method="get">
-                            <input type="button" class="revision"
-                             onclick="revision('.$tableNum.')" value="Teste moi!">
                             </form>
                         </div>
                     </div>
@@ -81,11 +80,11 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
         <div class="container-fluid">
             <div class="container">
                 <div class="row d-flex">
-                    <div class="col-6">
+                    <div class="col">
                         <h1>Math Tables!</h1>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col">
                         <nav>
                             <form method="post">
                                 <?php 
@@ -98,6 +97,10 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
                                 ?>
                             </form>
                         </nav>
+                    </div>
+
+                    <div class="col">
+                    <button type="button" onclick="ajaxCallAsynch()">Mode Révision</button> 
                     </div>
                 </div>
             </div>
