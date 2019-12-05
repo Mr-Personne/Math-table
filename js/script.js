@@ -1,12 +1,16 @@
 var answer;
+var currentNum = 3;
 
 function revision(num) {
+    //assigns global variable currentNum to sent num parameter so that it can
+    // potentialy be re-used if they want another question in the same table
+    currentNum = num;
     var randNum = Math.round(Math.random() * 10);
 
-    var stringQestion = randNum + " X " + num + " = ??";
-    answer = randNum * num;
+    var stringQestion = randNum + " X " + currentNum + " = ??";
+    answer = randNum * currentNum;
     console.log(stringQestion);
-    ajaxCallAsynch();
+    ajaxCallAsynch("revision.php");
     // timeout so ajax has time to load page
     setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
 }
@@ -17,9 +21,11 @@ function checkAnswer(calc) {
     var section = document.querySelector(".mode-révision");
     if (yourAnswer == answer) {
         section.innerHTML = "<p>Oui! Bravo!</p>";
+        setTimeout(function () { section.innerHTML = "<p></p>";revision(currentNum); }, 1000);
     }
     else{
-        alert("Non! Essaye encore...");
+        section.innerHTML = "<p>Non! Essaye encore...</p>";
+        setTimeout(function () { section.innerHTML = "<p></p>"; }, 2000);
     }
     console.log(yourAnswer);
 }
@@ -32,7 +38,7 @@ function ajaxCallAsynch(pageToLoad) {
     }
     else {
         httpRequest = new XMLHttpRequest();
-        httpRequest.open("GET", "revision.php", true);
+        httpRequest.open("GET", pageToLoad, true);
         httpRequest.send();
 
         httpRequest.onreadystatechange = function () {
