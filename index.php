@@ -11,9 +11,9 @@ function generateTable($tableNum = 3){
     
     // $_SESSION[$tableNum] = $tableNum;
     //generates lines to be added later in container echo
-    $lines = '<p class="fade-anim">1 X '.$tableNum.' = '.(1*$tableNum).'</p>';
+    $lines = '<p class="fade-anim">1 x '.$tableNum.' = '.(1*$tableNum).'</p>';
     for ($i = 2; $i <= 10; $i++){
-        $lines .= '<p class="fade-anim">'.$i.' X '.$tableNum.' = '.($i*$tableNum).'</p>';
+        $lines .= '<p class="fade-anim">'.$i.' x '.$tableNum.' = '.($i*$tableNum).'</p>';
     };
 
 
