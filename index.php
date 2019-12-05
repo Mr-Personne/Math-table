@@ -101,7 +101,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
                     </div>
 
                     <div class="col">
-                    <button type="button" onclick="ajaxCallAsynch()">Mode Révision</button> 
+                    <button type="button" onclick="ajaxCallAsynchSuper(3)">Mode Super Révision</button> 
                     </div>
                 </div>
             </div>

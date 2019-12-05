@@ -17,15 +17,24 @@ session_start();
 
 // print_r($_SESSION["tablesArray"]);
 $tablesArray = $_SESSION["tablesArray"];
-function revision($num) {
+function superRevision($num) {
+    $answers = "";
     $randNum = rand(0, 10);
-    // var_dump($num);
-    // $stringQestion = '<p class="calcule">'. $randNum . ' x ' . $num . ' = ??</p>';
-    // $_SESSION["answer"] = $randNum * $num;
-    // echo $stringQestion;
-    echo '<p class="calcule">'. $randNum . ' x ' . $num . ' = ??</p>
-            <input type="text" class="your-answer" name="your-answer">
-            <button type="button" class="revision" onclick="checkAnswer('.$randNum * $num.')">OK</button>';
+    //randArray is to check if random number has already been used in questions
+    //avoids duplicate questions
+    $randArray = array();
+    for ($i = 0; $i < 5; $i++){
+        while(in_array($randNum, $randArray)){
+            $randNum = rand(0, 10);
+        }
+        $randArray[] = $randNum;
+        $answers .= $randNum * $num.",";
+        echo '<p class="calcule">'. $randNum . ' x ' . $num . ' = ??</p>
+            <input type="text" class="your-answer" name="your-answer">';
+    
+    }
+    var_dump($answers);
+    echo '<button type="button" class="revision" onclick="checkAnswer('."'$answers'".')">OK</button>';
     
     // print_r($_SESSION);
     //timeout so ajax has time to load page
@@ -64,7 +73,7 @@ function revision($num) {
                                 <?php 
                                     foreach ($_GET as $value){
                                         // print_r($value);
-                                        revision($value);
+                                        superRevision($value);
                                     }
                                 ?> 
                                 <!-- </p> -->
@@ -78,4 +87,3 @@ function revision($num) {
         <section>
             
         </section>
-        
