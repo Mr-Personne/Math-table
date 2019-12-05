@@ -7,8 +7,8 @@ function revision(num) {
     answer = randNum * num;
     console.log(stringQestion);
     ajaxCallAsynch();
-    // timeout so ajax has time to load page
-    setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
+    //timeout so ajax has time to load page
+    // setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
 }
 
 
@@ -32,7 +32,7 @@ function ajaxCallAsynch(pageToLoad) {
     }
     else {
         httpRequest = new XMLHttpRequest();
-        httpRequest.open("GET", "revisionJS.php", true);
+        httpRequest.open("GET", "revision.php", true);
         httpRequest.send();
 
         httpRequest.onreadystatechange = function () {

@@ -1,6 +1,6 @@
 <?php
-session_start();
-print_r($_POST);
+// session_start();
+// print_r($_SESSION);
 //generates table
 $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
@@ -9,7 +9,7 @@ for ($i = 0; $i <= 10; $i++){
 
 function generateTable($tableNum = 3){
     
-    $_SESSION["tableNum"] = $tableNum;
+    // $_SESSION[$tableNum] = $tableNum;
     //generates lines to be added later in container echo
     $lines = '<p class="fade-anim">1 X '.$tableNum.' = '.(1*$tableNum).'</p>';
     for ($i = 2; $i <= 10; $i++){
@@ -87,7 +87,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
 
                     <div class="col-6">
                         <nav>
-                            <form action="#" method="post">
+                            <form method="post">
                                 <?php 
                                     foreach ($tablesArray as $num){
                                         if ($num !== 0){
@@ -107,17 +107,18 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     <main>
         <section class="d-flex flex-space-a">
             <?php
-
-            if (isset($_POST)){
-                echo "isset is true";
+            // var_dump();
+            if (count($_POST) == 0){
+                // echo "generating default table";
+                generateTable();
+                
+            }
+            else{
+                // echo "generating checked table(s)";
                 foreach ($_POST as $value){
                     // print_r($value);
                     generateTable($value);
                 }
-            }
-            else{
-                echo "post is empty";
-                generateTable();
             }
                 
                 
