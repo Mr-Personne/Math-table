@@ -33,8 +33,8 @@ function superRevision($num) {
             <input type="text" class="your-answer" name="your-answer">';
     
     }
-    var_dump($answers);
-    echo '<button type="button" class="revision" onclick="checkAnswer('."'$answers'".')">OK</button>';
+    // var_dump($answers);
+    echo '<button type="button" class="revision" onclick="checkMultipleAnswers('."'$answers'".')">OK</button>';
     
     // print_r($_SESSION);
     //timeout so ajax has time to load page
@@ -60,7 +60,7 @@ function superRevision($num) {
                                             echo '<input type="radio" name="table'.$num.'" value="'.$num.'"> '.$num.'';
                                         }
                                     }
-                                    echo '<input type="submit" value="Submit">';
+                                    echo '<button type="button" onclick="ajaxCallAsynchSuper(3)">OK</button>';
                                 ?>
                         </div>
                     </div>
@@ -69,14 +69,12 @@ function superRevision($num) {
                         <div class="col-12">
                             <h2>Table de <?php foreach ($_GET as $value){ echo $value; } ?></h2>
                             <p>Combien font :</p>
-                            <!-- <p class="calcule">  -->
                                 <?php 
                                     foreach ($_GET as $value){
                                         // print_r($value);
                                         superRevision($value);
                                     }
                                 ?> 
-                                <!-- </p> -->
                             <p class="mode-révision"></p>
                         </div>
                     </div>
