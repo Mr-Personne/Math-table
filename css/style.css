@@ -9,10 +9,26 @@ body{
 
     font-family: 'Fredericka the Great', cursive;
     color: white;
+    overflow-x: hidden;
 }
 
 h1, h2{
     font-weight: normal;
+}
+
+nav{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgb(81, 108, 109);
+  color: white;
+  height: 100vh;
+  width: 300px;
+  transition: all 0.5s;
+
+  /* should i??? */
+  border-bottom-left-radius: 45%;
 }
 
 /* section header */
@@ -24,6 +40,14 @@ h1, h2{
 
 .flex-space-a{
     justify-content: space-around;
+}
+
+.flex-align-c{
+  align-items: center;
+}
+
+.flex-direction-col{
+  flex-direction: column;
 }
 
 
@@ -46,6 +70,81 @@ h1, h2{
   display: flex;
   flex-wrap: wrap;
 }
+
+
+.table-button {
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.74);
+  border-radius: 10%;
+}
+
+
+
+.table-button:hover{
+  cursor: pointer;
+  background-color: cadetblue;
+}
+
+
+
+.table-list {
+  width: 60px;
+    /* margin-top: 150px; */
+    /* margin-left: 20px; */
+  margin: 50% auto;
+}
+
+.table-list > * {
+  margin-bottom: 35px;
+  width: 150px;
+}
+
+.hide-nav{
+  right: -360px;
+}
+
+.super-revision-button{
+  width: 100px;
+  height: 80px;
+  background-color: #1f1f1f00;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.74);
+  border-radius: 10%;
+  color: white;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.super-revision-button:hover{
+  cursor: pointer;
+  background-color: cadetblue;
+}
+
+.math-table{
+  width: 50%;
+
+}
+
+.valid-btn{
+  width: 100px;
+  padding: 20px;
+  background-color: #8aa751;
+  color: white;
+  border-radius: 40%;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 18px;
+}
+
+.valid-btn:hover{
+  cursor: pointer;
+  background-color: #a9f01b;
+  
+}
+
+
 
 /*animation section*/
 /*source : https://css-tricks.com/snippets/css/typewriter-effect/*/

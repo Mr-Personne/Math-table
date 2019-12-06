@@ -68,28 +68,31 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     <header>
         <div class="container-fluid">
             <div class="container">
-                <div class="row d-flex">
-                    <div class="col">
+                <div class="row d-flex flex-align-c">
+                    <div class="col math-table">
                         <h1>Math Tables!</h1>
                     </div>
 
                     <div class="col">
-                        <nav>
-                            <form method="post">
+                        <p class="table-button">Mes Tableaux</p>
+                        <nav class="hide-nav">
+                            <form method="post" class="table-list d-flex flex-direction-col">
                                 <?php 
                                     foreach ($tablesArray as $num){
                                         if ($num !== 0){
-                                            echo '<input type="checkbox" name="table'.$num.'" value="'.$num.'"> '.$num.'';
+                                            echo '<div class="d-flex"><input type="checkbox" name="table'.$num.'" 
+                                            value="'.$num.'"> Table de '.$num.'';
+                                            echo '</div>';
                                         }
                                     }
-                                    echo '<input type="submit" value="Valider">';
+                                    echo '<input class="valid-btn" type="submit" value="Valider">';
                                 ?>
                             </form>
                         </nav>
                     </div>
 
                     <div class="col">
-                    <button type="button" onclick="ajaxCallAsynchSuper(3)">Mode Super Révision</button> 
+                    <button class="super-revision-button" type="button" onclick="ajaxCallAsynchSuper(3)">Mode Super Révision</button> 
                     </div>
                 </div>
             </div>
@@ -100,7 +103,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
         <section class="">
             <div class="container-fluid">
                     <div class="container">
-                        <div class="row flex-space-a">
+                        <div class="row">
                             <?php
                                 // var_dump();
                                 if (count($_POST) == 0){
@@ -133,6 +136,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     <!-- <a href="http://www.freepik.com">Designed by Dashu83 / Freepik</a> -->
     
     <script src="js/script.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 
 </html>
