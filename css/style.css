@@ -50,6 +50,10 @@ nav{
   flex-direction: column;
 }
 
+.margin-l-25px{
+  margin-left: 25px;
+}
+
 
 .container-fluid, .row, .col-12{
     width: 100%;
@@ -61,7 +65,7 @@ nav{
 }
 
 .col {
-  width: 250px;
+  width: 25%;
   font-size: 120%;
 }
 
@@ -71,6 +75,18 @@ nav{
   flex-wrap: wrap;
 }
 
+.basic-button {
+  background-color: #1f1f1f00;
+  border: 2px solid rgba(255, 255, 255, 0.74);
+  border-radius: 10%;
+  color: white;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.basic-button:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+}
 
 .table-button {
   width: 80px;
@@ -94,7 +110,8 @@ nav{
   width: 60px;
     /* margin-top: 150px; */
     /* margin-left: 20px; */
-  margin: 50% auto;
+  margin: 0 auto;
+  margin-top: 35%;
 }
 
 .table-list > * {
@@ -144,7 +161,16 @@ nav{
   
 }
 
+input[type="checkbox"]{
+  cursor: pointer;
+}
 
+input.your-answer {
+  background-color: #1f1f1f;
+  color: white;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 20px;
+}
 
 /*animation section*/
 /*source : https://css-tricks.com/snippets/css/typewriter-effect/*/

@@ -13,7 +13,7 @@ function revision($num) {
     
     echo '<p class="calcule">'. $randNum . ' x ' . $num . ' = ??</p>
             <input type="text" class="your-answer" name="your-answer">
-            <button type="button" class="revision" onclick="checkAnswer('.$randNum * $num.')">OK</button>';
+            <button type="button" class="revision basic-button margin-l-25px" onclick="checkAnswer('.$randNum * $num.')">OK</button>';
     
     
             

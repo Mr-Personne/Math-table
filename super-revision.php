@@ -41,7 +41,7 @@ function superRevision($num) {
         
     }
     // var_dump($answers);
-    echo '<button type="button" class="revision" onclick="checkMultipleAnswers('."'$answers'".')">OK</button>';
+    echo '<button type="button" class="revision basic-button margin-l-25px" onclick="checkMultipleAnswers('."'$answers'".')">OK</button>';
     
     
     //timeout so ajax has time to load page
@@ -64,10 +64,10 @@ function superRevision($num) {
                                 <?php 
                                     foreach ($tablesArray as $num){
                                         if ($num !== 0){
-                                            echo '<input type="checkbox" name="table'.$num.'" value="'.$num.'"> '.$num.'';
+                                            echo '<input type="checkbox" name="table'.$num.'" value="'.$num.'">'.$num.'    ';
                                         }
                                     }
-                                    echo '<button type="button" onclick="ajaxCallAsynchSuper(3)">OK</button>';
+                                    echo '<button class="basic-button margin-l-25px" type="button" onclick="ajaxCallAsynchSuper(3)">OK</button>';
                                 ?>
                         </div>
                     </div>

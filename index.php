@@ -23,7 +23,7 @@ function generateTable($tableNum = 3){
         echo '<div class="col">
                 <h2 class="fade-anim">Table de '.$tableNum.'</h2>
                 '.$lines.'
-                <button type="button" class="revision"
+                <button type="button" class="revision basic-button"
                     onclick="ajaxCallAsynch('.$tableNum.')" value='.$tableNum.'>Teste moi!</button>
             </div>';
     
