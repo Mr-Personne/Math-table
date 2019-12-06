@@ -20,17 +20,11 @@ function generateTable($tableNum = 3){
     };
 
 
-        echo '<div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="fade-anim">Table de '.$tableNum.'</h2>
-                            '.$lines.'
-                            <button type="button" class="revision"
-                             onclick="ajaxCallAsynch('.$tableNum.')" value='.$tableNum.'>Teste moi!</button>
-                        </div>
-                    </div>
-                </div>
+        echo '<div class="col">
+                <h2 class="fade-anim">Table de '.$tableNum.'</h2>
+                '.$lines.'
+                <button type="button" class="revision"
+                    onclick="ajaxCallAsynch('.$tableNum.')" value='.$tableNum.'>Teste moi!</button>
             </div>';
     
 }
@@ -88,7 +82,7 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
                                             echo '<input type="checkbox" name="table'.$num.'" value="'.$num.'"> '.$num.'';
                                         }
                                     }
-                                    echo '<input type="submit" value="Submit">';
+                                    echo '<input type="submit" value="Valider">';
                                 ?>
                             </form>
                         </nav>
@@ -104,23 +98,29 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
 
     <main>
         <section class="d-flex flex-space-a">
-            <?php
-            // var_dump();
-            if (count($_POST) == 0){
-                // echo "generating default table";
-                generateTable();
-                
-            }
-            else{
-                // echo "generating checked table(s)";
-                foreach ($_POST as $value){
-                    // print_r($value);
-                    generateTable($value);
-                }
-            }
-                
-                
-            ?>
+            <div class="container-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                                // var_dump();
+                                if (count($_POST) == 0){
+                                    // echo "generating default table";
+                                    generateTable();
+                                    
+                                }
+                                else{
+                                    // echo "generating checked table(s)";
+                                    foreach ($_POST as $value){
+                                        // print_r($value);
+                                        generateTable($value);
+                                    }
+                                }
+
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            
         </section>
 
         <section class="mode-révision">
