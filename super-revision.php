@@ -65,7 +65,7 @@ function superRevision($num) {
                     <div class="row">
                         <div class="col-12">
                             <h2>Révision</h2>
-                            <p>Veuillez sélectionner une table a réviser :</p>
+                            <p>Veuillez sélectionner une ou des table(s) a réviser :</p>
                                 <?php 
                                     foreach ($tablesArray as $num){
                                         if ($num !== 0){
