@@ -54,6 +54,10 @@ nav{
   margin-left: 25px;
 }
 
+.f-size-20px{
+  font-size: 20px;
+}
+
 
 .container-fluid, .row, .col-12{
     width: 100%;
@@ -81,6 +85,7 @@ nav{
   border-radius: 10%;
   color: white;
   font-family: 'Fredericka the Great', cursive;
+  font-size: 20px;
 }
 
 .basic-button:hover {
