@@ -97,10 +97,10 @@ Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre
     </header>
 
     <main>
-        <section class="d-flex flex-space-a">
+        <section class="">
             <div class="container-fluid">
                     <div class="container">
-                        <div class="row">
+                        <div class="row flex-space-a">
                             <?php
                                 // var_dump();
                                 if (count($_POST) == 0){
