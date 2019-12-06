@@ -22,7 +22,7 @@ function superRevision($num) {
     if(strlen($num) > 1){
         $selectedNum = true;
         $numArr = explode("-", $num);
-        print_r($numArr);
+        // print_r($numArr);
     };
     $answers = "";
     $randNum = rand(0, 10);
