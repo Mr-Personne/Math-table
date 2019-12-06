@@ -31,6 +31,15 @@ function ajaxCallAsynchSuper(num) {
         console.log("httpRequest en cours...");
     }
     else {
+        //if user checked multiples numbers to révise, add their values into a string
+        if(document.querySelectorAll('input[type=radio]:checked')){
+            var selectedNums = document.querySelectorAll('input[type=radio]:checked');
+            var nums = "";
+            for(var i = 0 ; i < selectedNums.length; i++) {
+                nums += selectedNums[i].value+",";
+            };
+        }
+        console.log(nums);
         httpRequest = new XMLHttpRequest();
         httpRequest.open("GET", "super-revision.php?currentTable=" + num, true);
         httpRequest.send();
