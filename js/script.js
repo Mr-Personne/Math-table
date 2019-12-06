@@ -50,6 +50,21 @@ function ajaxCallAsynchSuper(num) {
 };
 
 function checkAnswer(answer) {
+    var yourAnswer = document.querySelector(".your-answer").value;
+    var section = document.querySelector(".mode-révision");
+    console.log("yourAnswer : ",yourAnswer, " answer : ",answer);
+    if (yourAnswer == answer) {
+        section.innerHTML = '<p>Oui! Bravo!</p><button type="button" class="revision" onclick="ajaxCallAsynch(' + currentNum + ')">Re-teste moi!</button>';
+        // setTimeout(function () { section.innerHTML = "<p></p>";revision(currentNum); }, 1000);
+    }
+    else{
+        section.innerHTML = "<p>Non! Essaye encore...</p>";
+        setTimeout(function () { section.innerHTML = "<p></p>"; }, 2000);
+    }
+    // console.log(yourAnswer);
+};
+
+function checkMultipleAnswers(answer) {
     var yourAnswer = document.querySelectorAll(".your-answer");
     var section = document.querySelector(".mode-révision");
     var correctAnswers = answer.split(",");
