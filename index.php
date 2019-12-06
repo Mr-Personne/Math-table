@@ -37,15 +37,8 @@ function generateTable($tableNum = 3){
 
 
 
-// function revision($num) {
-//     $randNum = rand(0, 10);
-//     print_r($_SESSION["tableNum"]);
-//     $stringQestion = $randNum . " X " . $num . " = ";
-//     echo $stringQestion;
-//     $answer = $randNum * $num;
-//     //timeout so ajax has time to load page
-//     // setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
-// }
+
+
 
 ?>
 

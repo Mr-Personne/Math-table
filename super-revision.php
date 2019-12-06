@@ -1,23 +1,14 @@
 <?php
 session_start();
 // sleep(1);
-// foreach ($_POST as $value){
-//     var_dump("post val = ".$value);
-//     $num = $value;
-// }
-// print_r($_GET);
-// if($_POST["your-answer"] == $_SESSION["answer"]){
-//     $message = "Oui! Bravo";
-// }
-// elseif (isset($_SESSION["your-answer"]) && $_POST["your-answer"] != $_SESSION["answer"]){
-//     $message = "Non! Essaye encore!";
-// }
+
 
 
 
 // var_dump(is_string($_GET));
 $tablesArray = $_SESSION["tablesArray"];
 function superRevision($num) {
+
     //if it detects that $_GET is a string bigger than 1, if it is then explode it because i likely comes from selected radio num
     if(strlen($num) > 1){
         $selectedNum = true;
@@ -26,12 +17,15 @@ function superRevision($num) {
     };
     $answers = "";
     $randNum = rand(0, 10);
+
     //rand index for to use to choose randomly in my numArr array
     $randIndex = rand(0, count($numArr)-2);
     // var_dump("count() ".count($numArr));
+
     //randArray is to check if random number has already been used in questions
     //avoids duplicate questions
     $randArray = array();
+
     for ($i = 0; $i < 5; $i++){
         // var_dump($randIndex." ".$numArr[$randIndex]);
         if($selectedNum){ $num = $numArr[$randIndex]; $randIndex = rand(0, count($numArr)-2); };
@@ -48,7 +42,7 @@ function superRevision($num) {
     // var_dump($answers);
     echo '<button type="button" class="revision" onclick="checkMultipleAnswers('."'$answers'".')">OK</button>';
     
-    // print_r($_SESSION);
+    
     //timeout so ajax has time to load page
     // setTimeout(function () { document.querySelector(".calcule").innerText = stringQestion; }, 500);
 }
