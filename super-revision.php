@@ -8,19 +8,20 @@ session_start();
 // var_dump(is_string($_GET));
 $tablesArray = $_SESSION["tablesArray"];
 function superRevision($num) {
-
+    $selectedNum = false;
     //if it detects that $_GET is a string bigger than 1, if it is then explode it because i likely comes from selected radio num
     if(strlen($num) > 1){
         $selectedNum = true;
         $numArr = explode("-", $num);
         // print_r($numArr);
+        //rand index for to use to choose randomly in my numArr array
+        $randIndex = rand(0, count($numArr)-2);
+        // var_dump("count() ".count($numArr));
     };
     $answers = "";
     $randNum = rand(0, 10);
 
-    //rand index for to use to choose randomly in my numArr array
-    $randIndex = rand(0, count($numArr)-2);
-    // var_dump("count() ".count($numArr));
+    
 
     //randArray is to check if random number has already been used in questions
     //avoids duplicate questions
