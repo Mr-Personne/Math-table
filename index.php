@@ -7,6 +7,7 @@ $tablesArray = array();
 for ($i = 0; $i <= 10; $i++){
     $tablesArray[] = $i;
 }
+// var_dump($tablesArray);
 $_SESSION["tablesArray"] = $tablesArray;
 
 function generateTable($tableNum = 3){
