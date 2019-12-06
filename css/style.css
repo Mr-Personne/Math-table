@@ -26,6 +26,7 @@ h1, h2{
     justify-content: space-around;
 }
 
+
 .container-fluid, .row, .col-12{
     width: 100%;
 }
@@ -33,6 +34,17 @@ h1, h2{
 .container{
     width: 80%;
     margin: 0 auto;
+}
+
+.col {
+  width: 250px;
+  font-size: 120%;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*animation section*/
