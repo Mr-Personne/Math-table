@@ -42,32 +42,15 @@ function revision($num) {
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <h2>Révision</h2>
-                            <p>Veuillez sélectionner une table a réviser :</p>
-                                <?php 
-                                    foreach ($tablesArray as $num){
-                                        if ($num !== 0){
-                                            echo '<input type="radio" name="table'.$num.'" value="'.$num.'"> '.$num.'';
-                                        }
-                                    }
-                                    echo '<input type="submit" value="Submit">';
-                                ?>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <h2>Table de <?php foreach ($_GET as $value){ echo $value; } ?></h2>
+                        <div class="col">
+                            <h2>Révision : Table de <?php foreach ($_GET as $value){ echo $value; } ?></h2>
                             <p>Combien font :</p>
-                            <!-- <p class="calcule">  -->
                                 <?php 
                                     foreach ($_GET as $value){
                                         // print_r($value);
                                         revision($value);
                                     }
                                 ?> 
-                                <!-- </p> -->
                             <p class="mode-révision"></p>
                         </div>
                     </div>
